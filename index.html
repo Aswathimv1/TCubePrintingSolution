@@ -13,7 +13,7 @@
         <!-- Logo -->
         <div class="logo">
           <a href="#home">
-            <img src="images/Logo.png" alt="Logo">
+            <img src="images/logo.svg" alt="Logo">
           </a>
         </div>
         <nav>
@@ -60,8 +60,8 @@
       </div>
     </section>
     <section id="services" class="services">
-      <h2 class="section-title">Our Services </h2>
-      <div class="services-grid">
+      <h2 class="section-title animate-right">Our Services </h2>
+      <div class="services-grid animate-left">
         <div class="service-card">
           <img src="Images/offset-printing.jpg">
           <h3>Offset Printing</h3>
@@ -95,7 +95,7 @@
       </div>
       <section id="product" class="product-section">
         <h2 class="section-title">Other Products </h2>
-        <div class="product-grid">
+        <div class="product-grid animate-right">
           <!-- Product Card -->
           <div class="product-card">
             <div class="caption">Burger Box</div>
@@ -200,6 +200,17 @@
         const toggle = document.getElementById('menu-toggle');
         const nav = document.getElementById('nav-links');
         toggle.onclick = () => nav.classList.toggle('active');
+        const elements = document.querySelectorAll(".animate, .animate-left, .animate-right");
+        const observer = new IntersectionObserver(entries => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("show");
+            }
+          });
+        }, {
+          threshold: 0.2
+        });
+        elements.forEach(el => observer.observe(el));
       </script>
   </body>
 </html>

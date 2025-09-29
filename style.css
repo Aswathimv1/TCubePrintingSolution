@@ -123,8 +123,17 @@
     font-weight: 500;
     display: inline-block;
     transition: background 0.3s;
+    opacity: 0;
+    transform: scale(0.9);
+   animation: zoomIn 4s ease forwards;
+}
+
+@keyframes zoomIn {
+  to {
+    opacity: 1;
+    transform: scale(1);
   }
-  
+}
   .btn:hover {
     background: #0c90c9;
   }
@@ -559,7 +568,6 @@ button {
     grid-template-columns: 1fr; /* single column */
     margin: 20px;
   }
-
   .service-card img {
     width: 100%;
     height: auto;
@@ -611,4 +619,51 @@ button {
     font-size: 14px;
     padding: 15px;
   }
+}
+/* Hidden by default */
+.animate {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease-out;
+}
+
+/* When visible */
+.animate.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Left to Right */
+.animate-left {
+  opacity: 0;
+  transform: translateX(-80px);
+  transition: all 0.8s ease-out;
+}
+.animate-left.show {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Right to Left */
+.animate-right {
+  opacity: 0;
+  transform: translateX(80px);
+  transition: all 0.8s ease-out;
+}
+.animate-right.show {
+  opacity: 1;
+  transform: translateX(0);
+}
+.hero {
+  position: relative;
+  background: 
+    linear-gradient(to right, rgba(15, 23, 42, 0.8), rgba(30, 41, 59, 0.8)), /* gradient overlay */
+    url("images/offset.jpg") no-repeat center center/cover; /* your image */
+  height: 80vh;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 100px 20px;
 }
